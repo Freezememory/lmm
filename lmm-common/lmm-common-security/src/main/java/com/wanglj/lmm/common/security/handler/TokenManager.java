@@ -1,4 +1,4 @@
-package com.wanglj.lmm.auth.security.handler;
+package com.wanglj.lmm.common.security.handler;
 
 import io.jsonwebtoken.CompressionCodecs;
 import io.jsonwebtoken.Jwts;
