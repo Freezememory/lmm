@@ -8,6 +8,7 @@ import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.admin.api.entity.SysOrganization;
 import com.wanglj.lmm.admin.api.enums.AdminCode;
 import com.wanglj.lmm.admin.api.req.SysOrgReq;
+import com.wanglj.lmm.common.base.util.SimpleObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -41,13 +42,13 @@ public class SysOrganizationController {
      * @return: Boolean
      */
     @PostMapping("/save")
-    public R save(@RequestBody SysOrganization req) {
+    public R<SimpleObject> save(@RequestBody SysOrganization req) {
         if (ObjectUtil.isNull(req.getOrgCode()) || ObjectUtil.isNull(req.getOrgName()) || ObjectUtil.isNull(req.getOrgType())
                 || ObjectUtil.isNull(req.getOrgLevel()) || ObjectUtil.isNull(req.getProvince()) || ObjectUtil.isNull(req.getCity())
                 || ObjectUtil.isNull(req.getCounty()) || ObjectUtil.isNull(req.getMutualRecStatus())) {
-            return R.fail(AdminCode.Fail, "必填项不可为空");
+            return R.fail(AdminCode.Fail.getCode(), "必填项不可为空");
         }
-        return R.ok(AdminCode.Success, sysOrganizationService.saveInfo(req));
+        return R.ok(AdminCode.Success, SimpleObject.build(sysOrganizationService.saveInfo(req)));
     }
 
     /**
@@ -56,8 +57,8 @@ public class SysOrganizationController {
      * @return: Boolean
      */
     @PostMapping("/update")
-    public R<Boolean> update(@RequestBody SysOrganization req) {
-        return R.ok(AdminCode.Success, sysOrganizationService.updateInfo(req));
+    public R<SimpleObject> update(@RequestBody SysOrganization req) {
+        return R.ok(AdminCode.Success, SimpleObject.build(sysOrganizationService.updateInfo(req)));
     }
 
     /**
@@ -66,8 +67,8 @@ public class SysOrganizationController {
      * @return: Boolean
      */
     @PostMapping("/delete")
-    public R<Boolean> delete(@RequestBody SysOrgReq req) {
-        return R.ok(AdminCode.Success, sysOrganizationService.delete(req));
+    public R<SimpleObject> delete(@RequestBody SysOrgReq req) {
+        return R.ok(AdminCode.Success, SimpleObject.build(sysOrganizationService.delete(req)));
     }
 
     /**
@@ -85,8 +86,8 @@ public class SysOrganizationController {
      * @return: Boolean
      */
     @PostMapping("/uploadExcel")
-    public R<Boolean> uploadExcel(MultipartFile file) {
-        return R.ok(AdminCode.Success, sysOrganizationService.uploadExcel(file));
+    public R<SimpleObject> uploadExcel(MultipartFile file) {
+        return R.ok(AdminCode.Success, SimpleObject.build(sysOrganizationService.uploadExcel(file)));
     }
 
 }
