@@ -40,9 +40,9 @@
 │
 ├─lmm-gateway                          --网关模块   服务分发
 │
-│─lmm-protocol                         -- 远程接口调用模块
+│─lmm-protocol                         --远程接口调用模块
 │
-│─lmm-visual                           -- 系统监控模块
+│─lmm-visual                           --系统监控模块
 │
 ├─pom.xml                              --主要依赖
 │                                  

@@ -56,8 +56,16 @@ public class R<T> implements Serializable {
         return restResult(null, getCode(en), getMsg(en));
     }
 
-    public static <T> R<T> fail(Enum en, T data) {
-        return restResult(data, getCode(en), getMsg(en));
+    public static <T> R<T> fail(String msg) {
+        return restResult(null, 500, msg);
+    }
+
+    //public static <T> R<T> fail(Enum en, T data) {
+    //    return restResult(data, getCode(en), getMsg(en));
+    //}
+
+    public static <T> R<T> fail(Integer code,String msg) {
+        return restResult(null, code, msg);
     }
 
     public static <T> R<T> fail(int code, String msg, T data) {

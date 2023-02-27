@@ -12,12 +12,28 @@ import lombok.Getter;
  */
 @Getter
 public enum FrameCode {
+
+
+
     Success(200001, "操作成功"),
 
+    OtherFailed(100000, "其他异常"),
+
     SystemInnerError(100001, "系统内部错误"),
+
     AuthenticationFailed(100002, "认证失败无法访问系统资源"),
+
     LoginFailed(100003, "登录失败"),
-    AccountOrPwdFailed(100004, "账号或密码错误");
+
+    AccountOrPwdFailed(100004, "账号或密码错误"),
+
+    RequestParamFailed(100005, "请求参数不合法"),
+
+    GetMethodParamFailed(100006, "不支持GET拼接请求参数"),
+
+    InterInterfaceFailed(100007, "内部接口不可访问"),
+
+    ValidateFailed(100008, "参数校验错误");
 
     private int code;
 
