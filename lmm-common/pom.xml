@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>lmm</artifactId>
+        <groupId>com.wanglj</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>lmm-common</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lmm-common-base</module>
+        <module>lmm-common-mybatis</module>
+        <module>lmm-common-redis</module>
+        <module>lmm-common-satoken</module>
+        <module>lmm-common-security</module>
+    </modules>
+
+</project>

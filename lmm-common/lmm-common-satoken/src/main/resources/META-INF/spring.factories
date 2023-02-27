@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.wanglj.lmm.common.satoken.core.SaTokenDaoImpl,\
+  com.wanglj.lmm.common.satoken.core.SaPermissionImpl

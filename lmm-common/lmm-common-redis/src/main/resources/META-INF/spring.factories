@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.wanglj.lmm.common.redis.RedisConfig,\
+  com.wanglj.lmm.common.redis.RedisUtils

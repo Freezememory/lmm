@@ -1,0 +1,24 @@
+# Tomcat
+server:
+  port: 10010
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: ${spring.profiles.active}
+        group: lmm
+      config:
+        file-extension: yml
+        namespace: ${spring.profiles.active}
+        group: lmm
+        extension-configs:
+          - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: lmm
+logging:
+  level:
+    com.tydic.lmm.admin: debug
