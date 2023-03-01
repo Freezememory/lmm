@@ -19,6 +19,8 @@ spring:
         extension-configs:
           - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: lmm
+          - data-id: datasource-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: lmm
 logging:
   level:
     com.tydic.lmm.admin: debug

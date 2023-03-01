@@ -9,8 +9,6 @@
     </parent>
 
     <artifactId>lmm-common-security</artifactId>
-
-<!--    <version>0.0.1-SNAPSHOT</version>-->
     <name>lmm-common-security</name>
     <description>lmm-common-security</description>
 
@@ -34,18 +32,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-<!--        <dependency>
-            <groupId>com.wanglj</groupId>
-            <artifactId>lmm-protocol</artifactId>
-            <version>1.0.0</version>
-        </dependency>-->
-
         <!--配置中心客户端-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -73,7 +65,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
-
         <!--server-api-->
         <dependency>
             <groupId>javax.servlet</groupId>
