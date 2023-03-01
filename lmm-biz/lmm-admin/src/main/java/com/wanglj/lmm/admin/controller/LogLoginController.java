@@ -2,7 +2,7 @@ package com.wanglj.lmm.admin.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wanglj.lmm.admin.service.LogLoginService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.common.base.util.BeanUtilsExt;
 import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.admin.api.entity.LogLoginModel;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 登录日志管理
  */
 @RestController
-@RequestMapping(BfjConstants.ADMIN_URL_PREFIX + "/logLogin")
+@RequestMapping(LmmConstants.ADMIN_URL_PREFIX + "/logLogin")
 public class LogLoginController {
 
     @Autowired

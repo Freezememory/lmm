@@ -2,7 +2,7 @@ package com.wanglj.lmm.auth.controller;
 
 import com.wanglj.lmm.auth.api.req.LoginBody;
 import com.wanglj.lmm.auth.service.LoginService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.common.base.util.SimpleObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping(BfjConstants.AUTH_URL_PREFIX )
+@RequestMapping(LmmConstants.AUTH_URL_PREFIX )
 public class LoginController {
 
     @Autowired

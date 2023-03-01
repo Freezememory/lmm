@@ -4,7 +4,7 @@ package com.wanglj.lmm.common.base.constant;
  * 通用常量信息
  *
  */
-public class BfjConstants {
+public class LmmConstants {
 
     /**
      * BasePackage
@@ -20,6 +20,8 @@ public class BfjConstants {
      * 业务系统模块名称
      */
     public static final String ADMIN_MODULE = "lmm-admin";
+
+    public static final String PORTAL_MODULE = "bfj-portal";
 
     /**
      * 认证的Url前缀

@@ -8,7 +8,7 @@ import com.wanglj.lmm.admin.api.req.taskmanagement.TaskManagementReq;
 import com.wanglj.lmm.admin.api.vo.base.BasePageVO;
 import com.wanglj.lmm.admin.api.vo.TaskManagementVO;
 import com.wanglj.lmm.admin.service.TaskManagementService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.common.base.util.BeanUtilsExt;
 import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.common.base.util.SimpleObject;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 平台任务管理
  */
 @RestController
-@RequestMapping(BfjConstants.ADMIN_URL_PREFIX + "/taskManagement")
+@RequestMapping(LmmConstants.ADMIN_URL_PREFIX + "/taskManagement")
 public class TaskManagementController {
 
     @Autowired

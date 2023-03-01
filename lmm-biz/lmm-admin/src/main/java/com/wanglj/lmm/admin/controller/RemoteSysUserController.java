@@ -4,7 +4,7 @@ import com.wanglj.lmm.admin.protocol.sysuser.SysUserRemote;
 import com.wanglj.lmm.common.base.util.BeanUtilsExt;
 import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.admin.service.SysUserService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.admin.api.entity.user.SysUserModel;
 import com.wanglj.lmm.admin.api.enums.AdminCode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(BfjConstants.ADMIN_URL_PREFIX + "/remote/sysUser")
+@RequestMapping(LmmConstants.ADMIN_URL_PREFIX + "/remote/sysUser")
 public class RemoteSysUserController {
 
     @Autowired

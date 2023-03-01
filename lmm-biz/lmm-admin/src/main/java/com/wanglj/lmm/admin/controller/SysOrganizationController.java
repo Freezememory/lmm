@@ -3,7 +3,7 @@ package com.wanglj.lmm.admin.controller;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wanglj.lmm.admin.service.SysOrganizationService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.admin.api.entity.SysOrganization;
 import com.wanglj.lmm.admin.api.enums.AdminCode;
@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Slf4j
 @RestController
-@RequestMapping(BfjConstants.ADMIN_URL_PREFIX + "/org")
+@RequestMapping(LmmConstants.ADMIN_URL_PREFIX + "/org")
 @RequiredArgsConstructor
 public class SysOrganizationController {
 

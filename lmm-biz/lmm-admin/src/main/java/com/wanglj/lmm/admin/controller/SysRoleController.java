@@ -7,7 +7,7 @@ import com.wanglj.lmm.admin.api.req.SysRolePageReq;
 import com.wanglj.lmm.admin.api.vo.base.BasePageVO;
 import com.wanglj.lmm.admin.api.vo.SysRoleVO;
 import com.wanglj.lmm.admin.service.SysRoleService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.common.base.util.BeanUtilsExt;
 import com.wanglj.lmm.common.base.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 系统角色管理
  */
 @RestController
-@RequestMapping(BfjConstants.ADMIN_URL_PREFIX + "/sysRole")
+@RequestMapping(LmmConstants.ADMIN_URL_PREFIX + "/sysRole")
 public class SysRoleController {
 
     @Autowired

@@ -1,6 +1,6 @@
 package com.wanglj.lmm.admin;
 
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan(basePackages = {BfjConstants.MAPPER_SCAN})
+@MapperScan(basePackages = {LmmConstants.MAPPER_SCAN})
 public class LmmAdminApplication {
 
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package com.wanglj.lmm.auth;
 
 import cn.dev33.satoken.SaManager;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableDiscoveryClient
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@EnableFeignClients(basePackages = BfjConstants.BASE_PACKAGE)
+@EnableFeignClients(basePackages = LmmConstants.BASE_PACKAGE)
 public class LmmAuthApplication {
 
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import com.wanglj.lmm.admin.api.req.user.SysDelUser;
 import com.wanglj.lmm.admin.api.req.user.SysUserReq;
 import com.wanglj.lmm.admin.api.req.user.SysUserUptReq;
 import com.wanglj.lmm.admin.service.SysUserService;
-import com.wanglj.lmm.common.base.constant.BfjConstants;
+import com.wanglj.lmm.common.base.constant.LmmConstants;
 import com.wanglj.lmm.common.base.util.BeanUtilsExt;
 import com.wanglj.lmm.common.base.util.R;
 import com.wanglj.lmm.admin.api.entity.user.SysUserModel;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * 系统用户管理
  */
 @RestController
-@RequestMapping(BfjConstants.ADMIN_URL_PREFIX + "/sysUser")
+@RequestMapping(LmmConstants.ADMIN_URL_PREFIX + "/sysUser")
 public class SysUserController {
 
     @Autowired
