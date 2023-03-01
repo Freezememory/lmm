@@ -69,8 +69,8 @@ public class TaskManagementController {
      * @return: Boolean
      */
     @PostMapping("/update")
-    public R<Boolean> updateTaskManagement(@RequestBody TaskManagementReq req) {
-        return R.ok(AdminCode.Success, taskManagementService.updateTaskManagement(req));
+    public R<SimpleObject> updateTaskManagement(@RequestBody TaskManagementReq req) {
+        return R.ok(AdminCode.Success, SimpleObject.build(taskManagementService.updateTaskManagement(req)));
     }
 }
 
