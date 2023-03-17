@@ -33,7 +33,6 @@ public class LmmConstants {
      */
     public static final String ADMIN_URL_PREFIX = "/action";
 
-
     /**
      * Portal门户Url前缀
      */
