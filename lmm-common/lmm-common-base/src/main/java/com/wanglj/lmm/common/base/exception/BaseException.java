@@ -13,16 +13,6 @@ public class BaseException extends RuntimeException {
         super("系统异常");
         this.code = 100000;
     }
-
-/*    public BaseException(ResultEnum resultEnum) {
-        super(resultEnum.getDesc());
-        this.code = resultEnum.getCode();
-    }
-    
-    public BaseException(IErrorCode iErrorCode) {
-        super(iErrorCode.getErrorMessage());
-        this.code = iErrorCode.getErrorCode();
-    }*/
     
     public BaseException(String message) {
         super(message);

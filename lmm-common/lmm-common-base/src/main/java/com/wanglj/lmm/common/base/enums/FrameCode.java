@@ -13,8 +13,6 @@ import lombok.Getter;
 @Getter
 public enum FrameCode {
 
-
-
     Success(200001, "操作成功"),
 
     OtherFailed(100000, "其他异常"),
