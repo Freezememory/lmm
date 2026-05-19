@@ -45,4 +45,6 @@ public class LoginService {
         // 获取登录token
         return R.ok(FrameCode.Success, SimpleObject.build(StpUtil.getTokenValue()));
     }
+
+
 }
