@@ -36,3 +36,13 @@ CREATE TABLE diary_item (
     update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     INDEX idx_user_date (user_id, diary_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='清单条目表';
+
+CREATE TABLE diary_content (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL COMMENT '所属用户',
+    diary_date DATE NOT NULL COMMENT '日记日期',
+    text_content TEXT COMMENT '文字内容',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    UNIQUE KEY uk_user_date (user_id, diary_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='日记内容表';
