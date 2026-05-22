@@ -22,6 +22,7 @@
         <module>diary-common</module>
         <module>diary-gateway</module>
         <module>diary-user</module>
+        <module>diary-core</module>
     </modules>
 
     <properties>
