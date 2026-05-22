@@ -97,6 +97,7 @@ async function handleSubmit() {
     ElMessage.success(isEdit.value ? '修改成功' : '新增成功')
     loadData()
   } catch (e) {
+    ElMessage.error('操作失败，请重试')
     console.error('提交分类失败', e)
   }
 }

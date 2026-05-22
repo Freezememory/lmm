@@ -64,7 +64,7 @@ async function loadCalendarDates() {
   const month = dayjs(currentDate.value).month() + 1
   try {
     const res = await getCalendarDates(year, month)
-    diaryDates.value = res.data.map(d => d)
+    diaryDates.value = res.data
   } catch (e) {
     console.error('加载日历日期失败', e)
   }
@@ -73,16 +73,16 @@ async function loadCalendarDates() {
 async function handleDateClick(date) {
   selectedDate.value = date
   try {
-    const [catRes, itemRes, contentRes, imgRes] = await Promise.all([
+    const [catRes, itemRes, contentRes, imgRes] = await Promise.allSettled([
       getCategories(),
       getItems(date),
       getContent(date),
       getImages(date)
     ])
-    selectedCategories.value = catRes.data
-    selectedItems.value = itemRes.data
-    selectedDiary.value = contentRes.data
-    selectedImages.value = imgRes.data
+    if (catRes.status === 'fulfilled') selectedCategories.value = catRes.value.data
+    if (itemRes.status === 'fulfilled') selectedItems.value = itemRes.value.data
+    if (contentRes.status === 'fulfilled') selectedDiary.value = contentRes.value.data
+    if (imgRes.status === 'fulfilled') selectedImages.value = imgRes.value.data
     dialogVisible.value = true
   } catch (e) {
     console.error('加载日记详情失败', e)
