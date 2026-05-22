@@ -27,6 +27,13 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
     @Value("${jwt.secret:diary-system-secret-key-must-be-at-least-256-bits-long!!}")
     private String secret;
 
+    private SecretKey secretKey;
+
+    @jakarta.annotation.PostConstruct
+    public void init() {
+        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+    }
+
     private static final List<String> WHITE_LIST = List.of(
             "/api/user/register",
             "/api/user/login/account",
@@ -50,9 +57,8 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
 
         String token = authHeader.substring(7);
         try {
-            SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
             Claims claims = Jwts.parser()
-                    .verifyWith(key)
+                    .verifyWith(secretKey)
                     .build()
                     .parseSignedClaims(token)
                     .getPayload();
