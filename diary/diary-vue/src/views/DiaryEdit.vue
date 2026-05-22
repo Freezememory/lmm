@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, watch } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import dayjs from 'dayjs'
 import { getCategories, getItems, createItem, toggleItem, deleteItem,
@@ -109,16 +109,21 @@ function changeDate(delta) {
 }
 
 async function loadData() {
-  const [catRes, itemRes, contentRes, imgRes] = await Promise.all([
-    getCategories(),
-    getItems(currentDate.value),
-    getContent(currentDate.value),
-    getImages(currentDate.value)
-  ])
-  categories.value = catRes.data
-  items.value = itemRes.data
-  textContent.value = contentRes.data?.textContent || ''
-  images.value = imgRes.data
+  clearTimeout(saveTimer)
+  try {
+    const [catRes, itemRes, contentRes, imgRes] = await Promise.allSettled([
+      getCategories(),
+      getItems(currentDate.value),
+      getContent(currentDate.value),
+      getImages(currentDate.value)
+    ])
+    if (catRes.status === 'fulfilled') categories.value = catRes.value.data
+    if (itemRes.status === 'fulfilled') items.value = itemRes.value.data
+    if (contentRes.status === 'fulfilled') textContent.value = contentRes.value.data?.textContent || ''
+    if (imgRes.status === 'fulfilled') images.value = imgRes.value.data
+  } catch (e) {
+    console.error('加载数据失败', e)
+  }
 }
 
 function showAddItem() {
@@ -132,50 +137,77 @@ async function handleAddItem() {
     ElMessage.warning('请选择分类并输入内容')
     return
   }
-  await createItem({
-    categoryId: itemForm.categoryId,
-    diaryDate: currentDate.value,
-    content: itemForm.content
-  })
-  itemDialogVisible.value = false
-  ElMessage.success('添加成功')
-  loadData()
+  try {
+    await createItem({
+      categoryId: itemForm.categoryId,
+      diaryDate: currentDate.value,
+      content: itemForm.content
+    })
+    itemDialogVisible.value = false
+    ElMessage.success('添加成功')
+    loadData()
+  } catch (e) {
+    console.error('添加清单失败', e)
+  }
 }
 
 async function handleToggle(item) {
-  await toggleItem(item.id)
+  const prev = item.isDone
+  try {
+    await toggleItem(item.id)
+  } catch (e) {
+    item.isDone = prev
+    console.error('切换状态失败', e)
+  }
 }
 
 async function handleDeleteItem(id) {
-  await ElMessageBox.confirm('确定删除该清单？', '提示', { type: 'warning' })
-  await deleteItem(id)
-  ElMessage.success('删除成功')
-  loadData()
+  try {
+    await ElMessageBox.confirm('确定删除该清单？', '提示', { type: 'warning' })
+    await deleteItem(id)
+    ElMessage.success('删除成功')
+    loadData()
+  } catch (e) {
+    if (e !== 'cancel') console.error('删除清单失败', e)
+  }
 }
 
 let saveTimer = null
 function handleSaveContent() {
   clearTimeout(saveTimer)
   saveTimer = setTimeout(async () => {
-    await saveContent(currentDate.value, { textContent: textContent.value })
+    try {
+      await saveContent(currentDate.value, { textContent: textContent.value })
+    } catch (e) {
+      console.error('保存日记失败', e)
+    }
   }, 1000)
 }
 
 async function handleUpload(file) {
-  await uploadImage(currentDate.value, file)
-  ElMessage.success('上传成功')
-  loadData()
+  try {
+    await uploadImage(currentDate.value, file)
+    ElMessage.success('上传成功')
+    loadData()
+  } catch (e) {
+    console.error('上传图片失败', e)
+  }
   return false
 }
 
 async function handleDeleteImage(id) {
-  await ElMessageBox.confirm('确定删除该图片？', '提示', { type: 'warning' })
-  await deleteImage(id)
-  ElMessage.success('删除成功')
-  loadData()
+  try {
+    await ElMessageBox.confirm('确定删除该图片？', '提示', { type: 'warning' })
+    await deleteImage(id)
+    ElMessage.success('删除成功')
+    loadData()
+  } catch (e) {
+    if (e !== 'cancel') console.error('删除图片失败', e)
+  }
 }
 
 onMounted(loadData)
+onUnmounted(() => clearTimeout(saveTimer))
 </script>
 
 <style scoped>

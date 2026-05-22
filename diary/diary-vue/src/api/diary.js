@@ -41,7 +41,7 @@ export function getContent(date) {
 }
 
 export function saveContent(date, data) {
-  return request.put(`/diary/content?date=${date}`, data)
+  return request.put('/diary/content', data, { params: { date } })
 }
 
 export function getImages(date) {
