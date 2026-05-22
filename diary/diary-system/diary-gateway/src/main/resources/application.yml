@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: diary-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: diary-user
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/user/**
+        - id: diary-core
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/diary/**
+
+jwt:
+  secret: diary-system-secret-key-must-be-at-least-256-bits-long!!
