@@ -46,3 +46,13 @@ CREATE TABLE diary_content (
     update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     UNIQUE KEY uk_user_date (user_id, diary_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='日记内容表';
+
+CREATE TABLE diary_image (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL COMMENT '所属用户',
+    diary_date DATE NOT NULL COMMENT '所属日期',
+    image_url VARCHAR(500) NOT NULL COMMENT '图片URL',
+    sort_order INT DEFAULT 0 COMMENT '排序序号',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '上传时间',
+    INDEX idx_user_date (user_id, diary_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='日记图片表';
