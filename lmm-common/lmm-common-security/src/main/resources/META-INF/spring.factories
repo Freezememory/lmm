@@ -1,7 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.wanglj.lmm.common.security.config.GlobalExceptionHandler,\
-  com.wanglj.lmm.common.security.component.BfjSecurityInnerAspect,\
-  com.wanglj.lmm.common.security.util.SpringContextHolder,\
-  com.wanglj.lmm.common.security.component.PermitAllUrlProperties,\
-  com.wanglj.lmm.common.security.config.SaTokenConfigure
-
